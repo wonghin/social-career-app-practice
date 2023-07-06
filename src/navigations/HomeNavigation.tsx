@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react'
 import SettingScreen from '../screens/SettingScreen';
 import { Box, View } from 'native-base';
-import HomeScreen from '../screens/HomeScreen';
+import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import RestaurantScreen from '../screens/restaurants/RestaurantScreen';
 import { RootStackParamList } from './NavigationParamType';
 
@@ -18,7 +18,7 @@ const HomeNavigation = () => {
         }}>
             <Tab.Screen
                 options={{
-                    headerShown: true,
+                    // headerShown: true,
                 }}
                 name='Home' component={HomeScreen} />
             <Tab.Screen name='Restaurant' component={RestaurantScreen} />

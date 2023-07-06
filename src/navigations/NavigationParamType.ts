@@ -3,6 +3,10 @@ import { StackNavigationProp, StackScreenProps } from "@react-navigation/stack";
 export type RootStackParamList = {
     login: undefined
     Home: undefined
+    HomeStack: undefined
+
+
+
     Restaurant: undefined
     RestaurantDetails: undefined
     Settings: undefined
