@@ -7,9 +7,11 @@ export type RootStackParamList = {
 
 
 
-    Restaurant: undefined
+    Search: undefined
     RestaurantDetails: undefined
     Settings: undefined
+
+    Schedule: undefined
 
 
     HomeNavigation: undefined;

@@ -2,7 +2,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react'
 import HomeNavigation from './HomeNavigation';
 import { RootStackParamList } from './NavigationParamType';
-import RestaurantDetailsScreen from '../screens/restaurants/RestaurantDetailsScreen';
+import RestaurantDetailsScreen from '../screens/searchScreen/RestaurantDetailsScreen';
 import LoginScreen from '../screens/login/LoginScreen';
 import { HomeStackScreen } from '../screens/HomeScreen/HomeStackScreen';
 

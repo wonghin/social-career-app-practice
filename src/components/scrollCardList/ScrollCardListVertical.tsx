@@ -5,7 +5,7 @@ interface Props {
     children: React.ReactNode
 }
 
-export const MyScrollCardListVertical = ({ ...props }: Props) => {
+export const ScrollCardListVertical = ({ ...props }: Props) => {
     return (
         <ScrollView >
             {props.children}

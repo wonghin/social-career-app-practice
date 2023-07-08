@@ -2,7 +2,7 @@ import { Box, Center, ScrollView, Text } from 'native-base'
 import React from 'react'
 import { MyCard } from '../../components/card/MyCard'
 import { windowWidth } from '../../styles/styles';
-import { MyScrollCardListVertical } from '../../components/scrollCardList/MyScrollCardListVertical';
+
 
 export const HomeStackScreen = () => {
     return (
