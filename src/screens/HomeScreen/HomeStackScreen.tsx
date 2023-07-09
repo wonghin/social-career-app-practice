@@ -7,6 +7,7 @@ import { Navigation } from '../../navigations/NavigationParamType';
 import { useStackNavigationStore } from '../../hooks/useStackNavigationStore';
 import { Feather } from '@expo/vector-icons';
 import { AdjustSearch } from '../../components/adjust/AdjustSearch';
+import { Test } from '../../components/test';
 
 export const HomeStackScreen = ({ navigation }: Navigation) => {
     const { title } = useStackNavigationStore()
@@ -28,7 +29,8 @@ export const HomeStackScreen = ({ navigation }: Navigation) => {
                             <Icon as={<Feather name="chevron-left" />} size={'md'} color={'black'} />
                         </Pressable>
 
-                        <AdjustSearch />
+                        {/* <AdjustSearch /> */}
+                        <Test />
                     </HStack>
                     <Box mb={2}>
                         <Text fontSize={'xl'} bold>{title}</Text>
