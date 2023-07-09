@@ -6,6 +6,7 @@ import { windowHeight, windowWidth } from '../../styles/styles'
 
 import { DynamicComponent } from '../../components/dynamicComponent/DynamicComponent'
 import { FullButton } from '../../components/button/FullButton'
+import { useStackNavigationStore } from '../../hooks/useStackNavigationStore'
 
 const resData = [
     {
@@ -150,6 +151,9 @@ const resData = [
 
 
 const HomeScreen = ({ navigation }: Navigation): JSX.Element => {
+
+    const { setData } = useStackNavigationStore()
+
     return (
 
         <ScrollView showsVerticalScrollIndicator={false} >

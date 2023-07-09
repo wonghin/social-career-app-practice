@@ -47,6 +47,7 @@ const SearchInput = () => {
                         placeholder="搜尋關鍵字"
                         _focus={{ borderColor: 'orange.200', backgroundColor: 'transparent' }}
                         mr={isOpen ? 8 : 0}
+                        size="xl"
                     />
 
                 )}

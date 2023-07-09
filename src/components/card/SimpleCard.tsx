@@ -1,21 +1,33 @@
-import { Box, VStack, Text } from 'native-base'
+import { Box, VStack, Text, Pressable } from 'native-base'
 import React from 'react'
 import { Datum, ListData } from '../dynamicComponent/DynamicComponent'
+import { useNavigation } from '@react-navigation/native'
+import { NavigationScreenProps } from '../../navigations/NavigationParamType'
+import { useStackNavigationStore } from '../../hooks/useStackNavigationStore'
 
 
 const size = 150
 
 export const SimpleCard = ({ ...data }: Partial<Datum>) => {
+    const navigation = useNavigation<NavigationScreenProps>()
+    const { setTitle } = useStackNavigationStore()
+    const handler = () => {
+        data.activityTitle !== undefined && setTitle(data.activityTitle)
+        navigation.navigate('HomeStack')
+    }
     return (
-        <VStack space={4}>
-            <Box size={size} bg={'blue.500'} borderRadius={'lg'}>
+        <Pressable onPress={handler}>
+            <VStack space={4}>
+                <Box size={size} bg={'blue.500'} borderRadius={'lg'}>
 
-            </Box>
-            <Box w={size}>
-                <Text>
-                    {data.activityTitle}
-                </Text>
-            </Box>
-        </VStack>
+                </Box>
+                <Box w={size}>
+                    <Text>
+                        {data.activityTitle}
+                    </Text>
+                </Box>
+            </VStack>
+
+        </Pressable>
     )
 }

@@ -3,10 +3,11 @@ import React, { useCallback } from 'react'
 import { Entypo } from '@expo/vector-icons';
 import { MyCard } from '../card/MyCard';
 import { useNavigation } from '@react-navigation/native';
-import { NavigationScreenProps } from '../../navigations/NavigationParamType';
+import { NavigationScreenProps, RootStackParamList } from '../../navigations/NavigationParamType';
 import { ScrollViewProps } from 'react-native/Libraries/Components/ScrollView/ScrollView';
 import { StyleProp, ViewStyle } from 'react-native';
 import { IVStackProps } from 'native-base/lib/typescript/components/primitives/Stack/VStack';
+import { useStackNavigationStore } from '../../hooks/useStackNavigationStore';
 
 export interface ScrollCardListProps {
     title: string,
@@ -16,6 +17,9 @@ export interface ScrollCardListProps {
     contentContainerStyle?: StyleProp<ViewStyle>
     myStyle?: IVStackProps
 
+    navigation?: RootStackParamList
+
+
     showRightIcon: boolean
     showSubTitle: boolean
 }
@@ -24,9 +28,12 @@ export interface ScrollCardListProps {
 
 export const ScrollCardList = ({ ...props }: ScrollCardListProps) => {
     const navigation = useNavigation<NavigationScreenProps>()
+    const { setTitle } = useStackNavigationStore()
+
     const handler = useCallback(() => {
-        console.log('Clicked');
+        setTitle(props.title)
         navigation.navigate('HomeStack')
+
     }, [])
     return (
         <VStack {...props.myStyle} pb={4}>

@@ -9,7 +9,6 @@ import { Entypo } from '@expo/vector-icons';
 export const ListButton = ({ ...props }: Partial<ScrollCardListProps>) => {
 
     const handler = () => {
-        console.log('clicked');
 
     }
     return (

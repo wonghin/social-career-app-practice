@@ -1,12 +1,41 @@
-import { createStackNavigator } from '@react-navigation/stack';
+import { StackNavigationProp, createStackNavigator } from '@react-navigation/stack';
 import React from 'react'
 import HomeNavigation from './HomeNavigation';
-import { RootStackParamList } from './NavigationParamType';
+import { NavigationScreenProps, RootStackParamList } from './NavigationParamType';
 import RestaurantDetailsScreen from '../screens/searchScreen/RestaurantDetailsScreen';
 import LoginScreen from '../screens/login/LoginScreen';
 import { HomeStackScreen } from '../screens/HomeScreen/HomeStackScreen';
+import { Box } from 'native-base';
+import { RouteConfigComponent } from '@react-navigation/native';
+
+
 
 const RootStack = createStackNavigator<RootStackParamList>();
+
+
+interface ScreenArray {
+    name: keyof RootStackParamList,
+    component: any
+}
+
+const screenArray: ScreenArray[] = [
+    {
+        name: 'HomeStack',
+        component: HomeStackScreen
+    }
+]
+
+
+const getScreens = (screenArray: ScreenArray[]) => {
+    return screenArray.map((item) => {
+        return <RootStack.Screen key={item.name}
+            options={{
+                headerBackTitleVisible: false,
+
+            }}
+            name={item.name} component={item.component} />
+    })
+}
 
 
 const StackNavigation = () => {
@@ -21,22 +50,19 @@ const StackNavigation = () => {
                 name='HomeNavigation' component={HomeNavigation} />
 
             <RootStack.Screen
-                options={{
-                    // headerShown: false
-                    headerBackTitleVisible: false,
-
-
-                }}
-
-                name='HomeStack' component={HomeStackScreen} />
-
-
-
-            <RootStack.Screen
                 name='RestaurantDetails' component={RestaurantDetailsScreen} />
 
             <RootStack.Screen name='login' component={LoginScreen} />
 
+            <RootStack.Screen
+                options={{
+                    headerBackTitleVisible: false,
+                    headerShown: false
+
+                }}
+                name={'HomeStack'} component={HomeStackScreen} />
+
+            {/* {getScreens(screenArray)} */}
 
 
         </RootStack.Navigator>
