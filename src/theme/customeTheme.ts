@@ -5,7 +5,22 @@ import { NativeBaseProvider, extendTheme, Radio, Checkbox } from 'native-base';
 
 export const customeTheme = extendTheme({
     colors: {
-        main: {
+        Temp:
+
+        {
+            10: "#f9f4e7",
+            50: '#f9f4e7',
+            100: '#e7deca',
+            200: '#d6caaa',
+            300: '#c6b988',
+            400: '#b5ab66',
+            500: '#9d964d',
+            600: '#7a793c',
+            700: '#55572a',
+            800: '#313518',
+            900: '#121501',
+        },
+        Main: {
             50: "#ff111114",
             100: "#ffefed",
             200: "#ffcec5",
@@ -52,7 +67,7 @@ export const customeTheme = extendTheme({
                 rounded: 'md',
             },
             defaultProps: {
-                colorScheme: "main",
+                colorScheme: "Main",
                 variant: 'solid',
             },
         },

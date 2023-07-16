@@ -7,6 +7,8 @@ import LoginScreen from '../screens/login/LoginScreen';
 import { HomeStackScreen } from '../screens/HomeScreen/HomeStackScreen';
 import { Box } from 'native-base';
 import { RouteConfigComponent } from '@react-navigation/native';
+import { View } from 'react-native';
+import { TaskScreen } from '../screens/task/TaskScreen';
 
 
 
@@ -61,6 +63,13 @@ const StackNavigation = () => {
 
                 }}
                 name={'HomeStack'} component={HomeStackScreen} />
+            <RootStack.Screen
+                options={{
+                    headerBackTitleVisible: false,
+                    headerShown: false
+
+                }}
+                name={'TaskStack'} component={TaskScreen} />
 
             {/* {getScreens(screenArray)} */}
 

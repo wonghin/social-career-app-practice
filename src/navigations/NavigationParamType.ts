@@ -1,14 +1,17 @@
 import { StackNavigationProp, StackScreenProps } from "@react-navigation/stack";
 
 export type RootStackParamList = {
+    loginTab: undefined
     login: undefined
     Home: undefined
 
     //Similar Stack screen
     HomeStack: undefined
+    TaskStack: undefined
+
+
     SuggestionJob: undefined,
     ShortestTimeJob: undefined,
-
 
 
 

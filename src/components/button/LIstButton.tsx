@@ -1,12 +1,15 @@
-import { Box, HStack, Pressable, Text } from 'native-base'
+import { Box, HStack, Icon, Pressable, Text } from 'native-base'
 import React from 'react'
 import { ScrollCardListProps } from '../scrollCardList/ScrollCardList'
 
 import { Entypo } from '@expo/vector-icons';
 
 
+interface ListButtonProps extends Partial<ScrollCardListProps> {
+    disable?: boolean
+}
 
-export const ListButton = ({ ...props }: Partial<ScrollCardListProps>) => {
+export const ListButton = ({ ...props }: ListButtonProps) => {
 
     const handler = () => {
 
@@ -14,13 +17,17 @@ export const ListButton = ({ ...props }: Partial<ScrollCardListProps>) => {
     return (
         <Pressable onPress={handler}>
             <HStack justifyContent={'space-between'} >
-                <Text fontSize={'md'}>
+                <Text fontSize={'md'} color={props.disable ? 'gray.400' : 'black'}>
                     {props.title}
                 </Text>
                 {
                     props.showRightIcon &&
                     <Box>
-                        <Entypo name="chevron-small-right" size={24} color="black" />
+                        <Icon as={<Entypo name="chevron-small-right" />}
+                            color={props.disable ? 'gray.400' : 'black'}
+                            size={'lg'}
+                        />
+
                     </Box>
                 }
             </HStack>

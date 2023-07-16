@@ -10,7 +10,8 @@ import { useStackNavigationStore } from '../../../hooks/useStackNavigationStore'
 export const MyScrollCardList = ({ ...listData }: ListData) => {
 
     return (
-        <ScrollCardList title={listData.title} subTitle={listData.subTitle} myStyle={{ bg: listData?.bg }} showRightIcon={true} showSubTitle={true}>
+        <ScrollCardList title={listData.title} subTitle={listData.subTitle}
+            myStyle={{ bg: listData?.bg }} showRightIcon={true} showSubTitle={true}>
             {
                 listData.data.map((value, index) =>
                     <Box ml={4} key={index}>

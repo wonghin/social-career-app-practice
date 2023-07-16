@@ -6,7 +6,7 @@ import { FontAwesome, Entypo } from '@expo/vector-icons';
 export const FullButton = () => {
     return (
         <Pressable
-            bg={'amber.400'}
+            bg={'Temp.200'}
             // leftIcon={<Icon as={<FontAwesome name="home" size={24} color="black" />}
             //     size="sm" />}
             borderRadius={'xl'}

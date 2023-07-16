@@ -18,7 +18,7 @@ export const SimpleCard = ({ ...data }: Partial<Datum>) => {
     return (
         <Pressable onPress={handler}>
             <VStack space={4}>
-                <Box size={size} bg={'blue.500'} borderRadius={'lg'}>
+                <Box size={size} bg={'gray.300'} borderRadius={'lg'} shadow={4}>
 
                 </Box>
                 <Box w={size}>

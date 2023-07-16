@@ -1,8 +1,11 @@
 import { Box, Center, Divider, ScrollView, VStack, Text, Pressable } from 'native-base'
-import React, { Fragment } from 'react'
+import React, { Fragment, useRef } from 'react'
 import CenterComponent from '../../components/CenterComponent'
 import { Profile } from './Profile'
 import { ListButton } from '../../components/button/LIstButton'
+import { useScrollToTop } from '@react-navigation/native'
+import { useUserInfoStore } from '../../hooks/useUserInfoStore'
+import { Logout } from './Logout'
 
 const MyDivider = () => {
     return <Divider mt={8} mb={4} />
@@ -16,7 +19,7 @@ const layoutData = [
     },
     {
         header: "偏好",
-        items: ["語言", "私隱和安全"],
+        items: ["語言 🌏", "私隱和安全"],
         showRightIcon: true
     },
     {
@@ -37,8 +40,15 @@ const layoutData = [
 
 
 const SettingScreen = () => {
+    const ref = useRef(null)
+    useScrollToTop(ref)
+    const userInfo = useUserInfoStore()
+
+
+
+
     return (
-        <ScrollView showsVerticalScrollIndicator={false} mx={4}>
+        <ScrollView showsVerticalScrollIndicator={false} mx={4} ref={ref}>
             <VStack mt={2} space={8}>
                 <Profile />
             </VStack>
@@ -51,7 +61,10 @@ const SettingScreen = () => {
                             <Text bold fontSize={'lg'}>{value.header}</Text>
                             {
                                 value.items.map((item, index) =>
-                                    <ListButton key={index} showRightIcon={value.showRightIcon} title={item} showSubTitle={false} />
+                                    <ListButton key={index} showRightIcon={value.showRightIcon} title={item} showSubTitle={false}
+                                        disable={
+                                            (userInfo.token === '' && item !== "語言 🌏" && value.header !== "支援" && value.header !== "法律")
+                                                ? true : false} />
                                 )
                             }
                         </VStack>
@@ -64,7 +77,7 @@ const SettingScreen = () => {
             }
 
             <Pressable mt={4} mb={10}>
-                <Text underline color={'orange.500'}>登出</Text>
+                <Logout />
             </Pressable>
 
         </ScrollView>

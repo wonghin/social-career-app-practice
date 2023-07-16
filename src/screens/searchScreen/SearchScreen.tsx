@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CenterComponent from '../../components/CenterComponent'
 import { Box, Button, HStack, Icon, Input, Pressable, ScrollView } from 'native-base'
-import { useNavigation } from '@react-navigation/native'
+import { useIsFocused, useNavigation } from '@react-navigation/native'
 import { Navigation, NavigationScreenProps, RootStackParamList } from '../../navigations/NavigationParamType'
 import { StackScreenProps } from '@react-navigation/stack'
 import { Feather } from '@expo/vector-icons';
@@ -22,6 +22,16 @@ const SearchInput = () => {
         setIsOpen(false)
         reset()
     }
+
+    const isFocused = useIsFocused();
+
+    useEffect(() => {
+        if (isFocused) {
+            setIsOpen(false)
+            reset()
+        }
+    }, [isFocused])
+
     return (
         <HStack alignItems={'center'} space={4} mx={4}>
             {
@@ -61,7 +71,12 @@ const SearchInput = () => {
 
 const SearchScreen = ({ navigation }: Navigation): JSX.Element => {
     return (
-        <ScrollView stickyHeaderHiddenOnScroll contentContainerStyle={{}}>
+        <ScrollView
+            stickyHeaderHiddenOnScroll
+            contentContainerStyle={{}}
+        // keyboardShouldPersistTaps="always"
+
+        >
             <Box safeAreaTop>
                 <SearchInput />
 

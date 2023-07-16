@@ -3,6 +3,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { ProcessingScreen } from './ProcessingScreen';
 import { ConfirmScreen } from './ConfirmScreen';
 import { Box, useTheme } from 'native-base';
+import LoginScreen from '../login/LoginScreen';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -45,6 +46,7 @@ const TopNavigation = () => {
 export const ScheduleScreen = () => {
     return (
         <TopNavigation />
+        // <LoginScreen />
     )
 }
 
